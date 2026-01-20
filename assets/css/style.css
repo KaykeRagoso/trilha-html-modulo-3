@@ -1,38 +1,212 @@
-body, html {
+/* RESET BÁSICO */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
 }
-ul { list-style: none; padding-left: 5px; }
-a { color:blue; text-decoration: none;}
+
+/* VARIÁVEIS DE TEMA */
+:root {
+    --bg-main: #0f0f0f;
+    --bg-secondary: #1b1b1b;
+    --bg-tertiary: #252525;
+    --text-main: #e0e0e0;
+    --text-muted: #b5b5b5;
+    --accent: #8b0000;       /* vermelho vinho */
+    --accent-light: #b22222;
+    --gold: #c9a24d;
+    --border-color: #333;
+}
+
+/* BODY */
+body {
+    font-family: "Georgia", "Times New Roman", serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.7;
+}
+
+/* LOGO */
+.logo {
+    padding: 20px;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* BARRA DIVISÓRIA */
 .bar {
-    background-color: #f9f9fb;
-    padding:15px;
-    border-top: solid 1px #cdcdcd;
-    border-bottom: solid 1px #cdcdcd;
+    height: 4px;
+    background: linear-gradient(
+        to right,
+        var(--accent),
+        var(--gold),
+        var(--accent)
+    );
 }
+
+/* LAYOUT PRINCIPAL */
 .content {
-    max-width: 1440px;
-    margin: auto;
-    grid-gap: 3rem;
     display: grid;
-    gap: 3rem;
-    grid-template-areas: "sidebar main anchors";
-    grid-template-columns: minmax(0,15rem) minmax(0,2.5fr) minmax(0,15rem);
-    padding-left: 1rem;
-    padding-right: 1rem;
+    grid-template-columns: 220px 1fr 260px;
+    gap: 20px;
+    padding: 20px;
 }
-.footer {
-    min-height: 100px;
-    border-top: solid 1px #cdcdcd;
-}
-.anchors {
-    border-left: solid 1px #cdcdcd;
-    padding-left: 15px;
-}
+
+/* SIDEBAR */
 .sidebar {
-    border-right: solid 1px #cdcdcd;
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
 }
-figure {
-    text-align: center;
+
+.sidebar h2 {
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: var(--accent-light);
+}
+
+/* CONTEÚDO PRINCIPAL */
+.main {
+    background-color: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+/* SEÇÕES */
+.main > div {
+    margin-bottom: 50px;
+}
+
+.main h1 {
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.main h2 {
+    font-size: 24px;
+    color: var(--accent-light);
+    margin: 30px 0 15px;
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+}
+
+.main p {
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.main ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.main li {
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+/* ANCHORS / LINKS LATERAIS */
+.anchors {
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.anchors h2 {
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.anchors p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.anchors ul {
+    list-style: none;
+}
+
+.anchors li {
+    margin-bottom: 10px;
+}
+
+.anchors a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.anchors a:hover {
+    color: var(--accent-light);
+}
+
+/* FOOTER */
+.footer {
+    height: 60px;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+}
+#autor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: white;
+}
+    #autor a{
+    color: var(--text-main);
+    text-decoration: none;
+}
+#autor a:hover{
+    color: var(--accent-light);
+    transition: .5s;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar,
+    .anchors {
+        order: 2;
+    }
+
+    .main {
+        order: 1;
+    }
 }
