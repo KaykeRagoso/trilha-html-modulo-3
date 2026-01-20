@@ -77,7 +77,7 @@ Além disso, conta com:
 
 ## 🔗 Links
 
-* 🔍 **Projeto:** *(adicione aqui o link do GitHub Pages, se fizer deploy)*
+* 🔍 **Projeto:** *[Landing Page MAFIA](https://kaykeragoso.github.io/Landing-Page-MAFIA/)*
 * 💼 **LinkedIn:** [Kayke Ragoso](https://www.linkedin.com/in/kayke-ragoso/)
 
 ---
